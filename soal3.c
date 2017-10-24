@@ -9,14 +9,13 @@ pthread_t kepitingt;
 pthread_t controller;
 int lohan=100;
 int kepiting=100;
-int gamestatus=1;
 int ready=0;
 
 void* lohancountdown(void *arg)
 {
     ready++;
     while(ready<3);
-    while(gamestatus)
+    while(1)
     {
 	sleep(10);
 	lohan-=15;
@@ -26,7 +25,7 @@ void* kepitingcountdown(void *arg)
 {
     ready++;
     while(ready<3);
-    while(gamestatus)
+    while(1)
     {
 	sleep(20);
 	kepiting-=10;
@@ -37,11 +36,28 @@ void* control(void *arg)
     int action;
     ready++;
     while(ready<3);
-    while(gamestatus)
+    while(1)
     {
 	if((kepiting<=0 || kepiting > 100) || (lohan <=0 || lohan > 100))
 	{
-	    gamestatus=0;
+	    if(kepiting<=0)
+	    {
+		printf("Game Berakhir: Kepiting Mati Kelaparan\n");
+	    }
+	    if(kepiting>100)
+	    {
+		printf("Game Berakhir: Kepiting Mati Kekenyangan\n");
+	    }
+	    if(lohan<=0)
+	    {
+		printf("Game Berakhir: Lohan Mati Kelaparan\n");
+	    }
+	    if(lohan>100)
+	    {
+		printf("Game Berakhir: Lohan Mati Kekenyangan\n");
+	    }
+	    pthread_cancel(kepitingt);
+	    pthread_cancel(lohant);
 	    break;
 	}
 	printf("Pilih Aksi:\n1. beri makan lohan\n2. beri makan kepiting\n");
