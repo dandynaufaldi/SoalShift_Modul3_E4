@@ -18,6 +18,8 @@ void* lohancountdown(void *arg)
     while(ready<3);
     while(gamestatus)
     {
+	sleep(10);
+	lohan-=15;
     }
 }
 void* kepitingcountdown(void *arg)
