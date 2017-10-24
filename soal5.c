@@ -19,5 +19,12 @@ void* findName(void* arg){
 int main(int argc, char const *argv[])
 {
 	int i;
+	pthread_t thr[argc+1];
+	for(i=1;i<argc;i++){
+		pthread_create(&thr[i], NULL, findName, (void*)argv[i]);
+	}
+	for(i=1;i<argc;i++){
+		pthread_join(thr[i], NULL);
+	}
 	return 0;
 }
