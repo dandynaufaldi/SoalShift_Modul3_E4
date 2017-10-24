@@ -34,10 +34,30 @@ void* kepitingcountdown(void *arg)
 }
 void* control(void *arg)
 {
+    int action;
     ready++;
     while(ready<3);
     while(gamestatus)
     {
+	if((kepiting<=0 || kepiting > 100) || (lohan <=0 || lohan > 100))
+	{
+	    gamestatus=0;
+	    break;
+	}
+	printf("Pilih Aksi:\n1. beri makan lohan\n2. beri makan kepiting\n");
+	scanf("%d", &action);
+	if(action==1)
+	{
+	    lohan+=10;
+	}
+	else if(action==2)
+	{
+	    kepiting+=10;
+	}
+	else
+	{
+	    printf("Aksi tidak dikenali. Silahkan Coba Lagi\n");
+	}
     }
 }
 int main(void)
