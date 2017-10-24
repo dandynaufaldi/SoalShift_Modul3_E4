@@ -14,15 +14,27 @@ int ready=0;
 
 void* lohancountdown(void *arg)
 {
-    
+    ready++;
+    while(ready<3);
+    while(gamestatus)
+    {
+    }
 }
 void* kepitingcountdown(void *arg)
 {
-
+    ready++;
+    while(ready<3);
+    while(gamestatus)
+    {
+    }
 }
 void* control(void *arg)
 {
-
+    ready++;
+    while(ready<3);
+    while(gamestatus)
+    {
+    }
 }
 int main(void)
 {
