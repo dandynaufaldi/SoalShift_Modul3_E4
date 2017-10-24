@@ -28,6 +28,8 @@ void* kepitingcountdown(void *arg)
     while(ready<3);
     while(gamestatus)
     {
+	sleep(20);
+	kepiting-=10;
     }
 }
 void* control(void *arg)
