@@ -2,6 +2,21 @@
 Sistem Operasi Soal Shift Modul 3
 
 ----------------------------------------------------------
+SOAL 1
+
+-Asumsi hanya 1 Source Code
+-Asumsi user memilih mode penggunaan
+-Weapon menyimpan jumlah senjata setiap tipe
+-Asumsi 1 terminal 1 mode penggunaan
+
+----------------------------------------------------------
+SOAL 3
+
+-lohan, kepiting adalah variabel status binatang
+-Asumsi boleh memberi interface menu dan keterangan
+-pthread_cancel untuk mengakhiri permainan
+
+----------------------------------------------------------
 SOAL 4
 
 - Asumsi input paramater langsung masuk ke argument pada fungsi main.
