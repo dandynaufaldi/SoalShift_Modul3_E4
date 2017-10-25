@@ -38,42 +38,42 @@ void* control(void *arg)
     while(ready<3);
     while(1)
     {
-	if((kepiting<=0 || kepiting > 100) || (lohan <=0 || lohan > 100))
-	{
-	    if(kepiting<=0)
-	    {
-		printf("Game Berakhir: Kepiting Mati Kelaparan\n");
-	    }
-	    if(kepiting>100)
-	    {
-		printf("Game Berakhir: Kepiting Mati Kekenyangan\n");
-	    }
-	    if(lohan<=0)
-	    {
-		printf("Game Berakhir: Lohan Mati Kelaparan\n");
-	    }
-	    if(lohan>100)
-	    {
-		printf("Game Berakhir: Lohan Mati Kekenyangan\n");
-	    }
-	    pthread_cancel(kepitingt);
-	    pthread_cancel(lohant);
-	    break;
-	}
-	printf("Pilih Aksi:\n1. beri makan lohan\n2. beri makan kepiting\n");
-	scanf("%d", &action);
-	if(action==1)
-	{
-	    lohan+=10;
-	}
-	else if(action==2)
-	{
-	    kepiting+=10;
-	}
-	else
-	{
-	    printf("Aksi tidak dikenali. Silahkan Coba Lagi\n");
-	}
+		if((kepiting<=0 || kepiting > 100) || (lohan <=0 || lohan > 100))
+		{
+			pthread_cancel(kepitingt);
+		    pthread_cancel(lohant);
+		    if(kepiting<=0)
+		    {
+			printf("Game Berakhir: Kepiting Mati Kelaparan\n");
+		    }
+		    if(kepiting>100)
+		    {
+			printf("Game Berakhir: Kepiting Mati Kekenyangan\n");
+		    }
+		    if(lohan<=0)
+		    {
+			printf("Game Berakhir: Lohan Mati Kelaparan\n");
+		    }
+		    if(lohan>100)
+		    {
+			printf("Game Berakhir: Lohan Mati Kekenyangan\n");
+		    }
+		    break;
+		}
+		printf("Pilih Aksi:\n1. beri makan lohan\n2. beri makan kepiting\n");
+		scanf("%d", &action);
+		if(action==1)
+		{
+		    lohan+=10;
+		}
+		else if(action==2)
+		{
+		    kepiting+=10;
+		}
+		else
+		{
+		    printf("Aksi tidak dikenali. Silahkan Coba Lagi\n");
+		}
     }
 }
 int main(void)
