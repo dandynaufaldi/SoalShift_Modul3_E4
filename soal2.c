@@ -43,6 +43,7 @@ void* player1(void* arg){
 			}
 			else
 			{
+				printf("Holes remaining : %d",16-A.count);
 				printf("Input amount of bomb =");
 				int x; scanf("%d", &x);
 				int i, n;
@@ -104,6 +105,7 @@ void* player2(void* arg){
 			}
 			else
 			{
+				printf("Holes remaining : %d",16-B.count);
 				printf("Input amount of bomb =");
 				int x; scanf("%d", &x);
 				int i, n;
