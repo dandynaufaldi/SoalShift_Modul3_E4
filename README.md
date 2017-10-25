@@ -10,6 +10,12 @@ SOAL 1
 - Asumsi 1 terminal 1 mode penggunaan
 
 ----------------------------------------------------------
+SOAL 2
+
+- 3 thread : player 1, player 2, dan control ( cek poin pemain )
+- Asumsi, jika salah satu pemain sudah mengisi semua lubangnya, maka pemain berikutnya langsung masuk kesempatan mengisi bom juga
+
+----------------------------------------------------------
 SOAL 3
 
 - lohan, kepiting adalah variabel status binatang
