@@ -19,12 +19,16 @@ void init(player *pemain){
 }
 
 player A,B;
-pthread_t p1, p2;
+pthread_t p1, p2, ctrl;
 init(&A);
 init(&B);
 int turn=0;
+int run = 0;
+
 void* player1(void* arg){
 	A.statemain = 0;
+	run++;
+	while(run<3);
 	while(1){
 		while(turn&1){
 
@@ -62,6 +66,8 @@ void* player1(void* arg){
 
 void* player2(void* arg){
 	B.statemain = 1;
+	run++;
+	while(run<3);
 	while(1){
 		while(!(turn&1)){
 
@@ -97,6 +103,33 @@ void* player2(void* arg){
 	}
 }
 
+void* control(void* arg){
+	run++;
+	while(run<3);
+	while(1){
+		if (A.poin==10){
+			pthread_cancel(p1);
+			pthread_cancel(p2);
+			printf("Player %s win\n", A.name);
+			break;
+		}
+		else if (B.poin==16){
+			pthread_cancel(p1);
+			pthread_cancel(p2);
+			printf("Player %s win\n", B.name);
+			break;
+		}
+		else if (A.count==16 && B.count==16){
+			pthread_cancel(p1);
+			pthread_cancel(p2);
+			if (A.poin > B.poin) printf("Player %s win\n", A.name);
+			else if (A.poin < B.poin) printf("Player %s win\n", B.name);
+			else printf("Draw\n");
+			break;
+		}
+	}
+}
+
 int main(int argc, char const *argv[])
 {
 	printf("Input player1 name >");
@@ -110,9 +143,10 @@ int main(int argc, char const *argv[])
 	if (!err) printf("Can not create thread for player %s\n", A.name);
 	err = pthread_create(&p2, NULL, player2, NULL);
 	if (!err) printf("Can not create thread for player %s\n", B.name);
-
+	err = pthread_create(&ctrl, NULL, control, NULL);
+	if (!err) printf("Can not create thread for game control\n");
 	pthread_join(p1, NULL);
 	pthread_join(p2, NULL);
-	
+	pthread_join(ctrl, NULL);
 	return 0;
 }
