@@ -11,7 +11,7 @@ void* findName(void* arg){
 	key = 1;
 	char command[100];
 	char *name = arg;
-	sprintf(command, "echo \"%s : \" `grep -c %s Novel.txt`", name, name);
+	sprintf(command, "echo \"%s : \"`grep -o %s Novel.txt | wc -l`", name, name);
 	system(command);
 	key = 0;
 }
