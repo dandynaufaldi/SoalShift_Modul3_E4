@@ -4,17 +4,23 @@ Sistem Operasi Soal Shift Modul 3
 ----------------------------------------------------------
 SOAL 1
 
--Asumsi hanya 1 Source Code
--Asumsi user memilih mode penggunaan
--Weapon menyimpan jumlah senjata setiap tipe
--Asumsi 1 terminal 1 mode penggunaan
+- Asumsi hanya 1 Source Code
+- Asumsi user memilih mode penggunaan
+- Weapon menyimpan jumlah senjata setiap tipe
+- Asumsi 1 terminal 1 mode penggunaan
+
+----------------------------------------------------------
+SOAL 2
+
+- 3 thread : player 1, player 2, dan control ( cek poin pemain )
+- Asumsi, jika salah satu pemain sudah mengisi semua lubangnya, maka pemain berikutnya langsung masuk kesempatan mengisi bom juga
 
 ----------------------------------------------------------
 SOAL 3
 
--lohan, kepiting adalah variabel status binatang
--Asumsi boleh memberi interface menu dan keterangan
--pthread_cancel untuk mengakhiri permainan
+- lohan, kepiting adalah variabel status binatang
+- Asumsi boleh memberi interface menu dan keterangan
+- pthread_cancel untuk mengakhiri permainan
 
 ----------------------------------------------------------
 SOAL 4
